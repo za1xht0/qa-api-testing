@@ -14,4 +14,5 @@
 ## Запуск автотестов
 
 pip install pytest requests
+
 pytest test_api.py -v
