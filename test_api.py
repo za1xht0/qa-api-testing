@@ -1,5 +1,6 @@
 #Автотесты для JSONPlaceholder API
-# Запуск тестов: python -m pytest test_api.py -v
+# Запуск тестов: python -m pytest test_api.py -v (для проверки всех тестов)
+# python -m pytest test_api.py -v -k "test_get_post_by_id" (для проверки конкретного теста)
 
 import requests
 import pytest
@@ -50,7 +51,7 @@ def test_create_new_post():
     assert response.json()["body"] == new_post["body"]
     assert response.json()["userId"] == new_post["userId"]
 
-#TC6 - create new post with nobody
+#TC6 - create new post with nobody (bug: BUG1)
 def test_create_new_post_nobody():
     new_post = {
         "userId": 1
@@ -105,3 +106,11 @@ def test_check_email():
     for user in data:
         email = user["email"]
         assert "@" in email and "." in email.split("@")[-1]
+
+# TC12 - create post is not persisted(Bug:BUG2)
+def test_create_post_not_persisted():
+    new_post = {"title": "Test", "body": "Test", "userId": 1}
+    create_response = requests.post(f"{BASE_URL}/posts", json=new_post)
+    new_id = create_response.json()["id"]
+    get_response = requests.get(f"{BASE_URL}/posts/{new_id}")
+    assert get_response.status_code == 404
