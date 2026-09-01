@@ -1,0 +1,304 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: JSONPlaceholder API
+meta:
+  id: wrk_d1a04085e3144363ac4b3f165ea1c3d9
+  created: 1788270949214
+  modified: 1788270949214
+  description: ""
+collection:
+  - name: API
+    meta:
+      id: fld_29ec3450ef9d493480d65557c1ed38c2
+      created: 1788270978421
+      modified: 1788271015885
+      sortKey: -1788270978421
+      description: ""
+    children:
+      - name: Users
+        meta:
+          id: fld_af116ac64044458298e3d6f1e8fbfda8
+          created: 1788270998138
+          modified: 1788270998138
+          sortKey: -1788270998138
+          description: ""
+        children:
+          - url: "{{ _.url }}/users"
+            name: Get users list
+            meta:
+              id: req_bf79c32591af48af99356b1c898ebe48
+              created: 1788271737214
+              modified: 1788271759932
+              isPrivate: false
+              description: ""
+              sortKey: -1788271737214
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/users"
+            name: Check email users
+            meta:
+              id: req_e96146614b8945978f5234f772973108
+              created: 1788271773682
+              modified: 1788271793374
+              isPrivate: false
+              description: ""
+              sortKey: -1788271773682
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/posts/{% response 'body',
+              'req_7ea8b4dccbd844ef9798533f55ad18c4', 'b64::JC5pZA==::46b',
+              'never', 60 %}"
+            name: Check post persisted
+            meta:
+              id: req_f98e5a4c396345fab64afa27ce957a75
+              created: 1788271825069
+              modified: 1788272296318
+              isPrivate: false
+              description: ""
+              sortKey: -1788271825069
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Posts
+        meta:
+          id: fld_7d2b0f964903499d93855b332391bb85
+          created: 1788271022020
+          modified: 1788271022020
+          sortKey: -1788271022020
+          description: ""
+        children:
+          - url: "{{ _.url }}/posts"
+            name: Get all posts
+            meta:
+              id: req_04235269f8744c2c9d2e354498cba1c6
+              created: 1788271031348
+              modified: 1788271381455
+              isPrivate: false
+              description: ""
+              sortKey: -1788271031348
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/posts/1"
+            name: Get one post by id
+            meta:
+              id: req_63e667755f324429bc01e7198f24374e
+              created: 1788271289705
+              modified: 1788271336824
+              isPrivate: false
+              description: ""
+              sortKey: -1788271289705
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/posts/9999"
+            name: Get post negative
+            meta:
+              id: req_3c755cf29a32457b8449c8b760304475
+              created: 1788271341383
+              modified: 1788271372765
+              isPrivate: false
+              description: ""
+              sortKey: -1788271341383
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/posts?userId=1"
+            name: Filter posts by userid
+            meta:
+              id: req_f7d1cb704f664ece93c157e25a39b341
+              created: 1788271377530
+              modified: 1788271413003
+              isPrivate: false
+              description: ""
+              sortKey: -1788271377530
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/posts"
+            name: Create new post
+            meta:
+              id: req_7ea8b4dccbd844ef9798533f55ad18c4
+              created: 1788271428542
+              modified: 1788271502520
+              isPrivate: false
+              description: ""
+              sortKey: -1788271428542
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"title": "foo",
+                	"body": "bar",
+                	"userId": 1
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/posts"
+            name: Createw post with nobody
+            meta:
+              id: req_a7cd04fb75f64dda9e3fd59b23a03a5a
+              created: 1788271526718
+              modified: 1788271554892
+              isPrivate: false
+              description: ""
+              sortKey: -1788271526718
+            method: POST
+            body:
+              mimeType: application/json
+              text: "{}"
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/posts/1"
+            name: Update post
+            meta:
+              id: req_409b87cfb23f46e78da6bdd1023beb8a
+              created: 1788271568591
+              modified: 1788271674617
+              isPrivate: false
+              description: ""
+              sortKey: -1788271568591
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                { 
+                	"id": 1, 
+                	"title": "updated", 
+                	"body": "updated body", 
+                	"userId": 1 
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/posts/1"
+            name: Update only title
+            meta:
+              id: req_a093e89d1f724e24b897559dd6811cf3
+              created: 1788271619984
+              modified: 1788271679369
+              isPrivate: false
+              description: ""
+              sortKey: -1788271619984
+            method: PATCH
+            body:
+              mimeType: application/json
+              text: |-
+                { 
+                	"title": "only title changed" 
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.url }}/posts/1"
+            name: Delete post
+            meta:
+              id: req_88063c59448149feb00775c42b0e5c24
+              created: 1788271686042
+              modified: 1788271718170
+              isPrivate: false
+              description: ""
+              sortKey: -1788271686042
+            method: DELETE
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_1b0df3dad867685247d057553371373328c8e6a6
+    created: 1788270949217
+    modified: 1788270949217
+environments:
+  name: Base Environment
+  meta:
+    id: env_1b0df3dad867685247d057553371373328c8e6a6
+    created: 1788270949216
+    modified: 1788271185121
+    isPrivate: false
+  data:
+    url: https://jsonplaceholder.typicode.com
